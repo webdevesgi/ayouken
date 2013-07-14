@@ -1,7 +1,7 @@
 class Cinch::User
   attr_accessor :pv
   def init_game
-    @pv = 50
+    @pv = 500
   end
 end
 
@@ -16,10 +16,11 @@ class JoinQuit
   end
 
   def on_leaving(m, user)
-    if m.channel?
-      Channel(m.channel).send("Oh... #{m.user} just left.")
-    else
-      Channel('#webdevesgi').send("Oh... #{m.user} just left.")
-    end
+    # # Not currently necessary to notify channel quitting
+    # if m.channel?
+    #   Channel(m.channel).send("Oh... #{m.user} just left.")
+    # else
+    #   Channel('#webdevesgi').send("Oh... #{m.user} just left.")
+    # end
   end
 end

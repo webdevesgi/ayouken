@@ -23,9 +23,13 @@ end
 
 class Games
   include Cinch::Plugin
-  match(/pv (.+)/,     method: :execute_pv)
-  match(/attack (.+)/, method: :execute_attack)
-  match 'roulette',    method: :execute_roulette
+  match(/pv (.+)/,         method: :execute_pv)
+  match(/attack (.+)/,     method: :execute_attack)
+  match 'roulette',        method: :execute_roulette
+  match 'techniques',      method: :execute_techniques
+  match(/slap (.+)/,       method: :execute_slap)
+  match(/doubleslap (.+)/, method: :execute_doubleslap)
+  match(/tack (.+)/,       method: :execute_tackle)
 
   def execute_pv(m, username)
     username = username.strip
@@ -48,9 +52,43 @@ class Games
     m.reply res
   end
 
+  def execute_techniques(m)
+    list = [
+      '!slap [user]       ➤ 15 pv/hit',
+      '!doubleslap [user] ➤ 30 pv/hit',
+      '!tackle [user]     ➤ 20 pv/hit'
+    ]
+    m.reply list.join("\n")
+  end
+
+  def execute_slap(m, username)
+    hit 'slap', 15, m, username
+  end
+
+  def execute_doubleslap(m, username)
+    hit 'doubleslap', 30, m, username
+  end
+
+  def execute_tackle(m, username)
+    hit 'tackle', 20, m, username
+  end
+
+  def hit(technique, pp, m, username)
+    username = username.strip
+    exists = m.channel.user_is_logged?(username)
+    if exists
+      from = m.user
+      to = m.channel.get_user_from_username(username)
+      to.pv -= pp
+      m.reply "#{from.nick} hits #{to.nick} with #{technique}"
+    else
+      m.reply "Can't hit not logged user"
+    end
+  end
+
   def execute_roulette(m)
     bullet = 5
     roulette = Random.rand(6)
-    m.reply (bullet == roulette ? "BANG!" : "Click!")
+    m.reply(bullet == roulette ? "BANG!" : "Click!")
   end
 end
