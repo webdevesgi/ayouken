@@ -10,6 +10,9 @@ require plugins_dir + 'Fact'
 require plugins_dir + 'Tweet'
 require plugins_dir + 'Github'
 require plugins_dir + 'Reddit'
+require plugins_dir + 'Nsfw'
+require plugins_dir + 'Alert'
+require plugins_dir + 'Other'
 require plugins_dir + 'Doc'
 
 
@@ -29,6 +32,9 @@ bot = Cinch::Bot.new do
       Tweet,
       Github,
       RedditGif,
+      Nsfw,
+      Alert,
+      Other,
       Doc
     ]
   end
