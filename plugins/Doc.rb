@@ -9,6 +9,7 @@ class Doc
       "google [query]                   ➤ Get link to Google query",
       "https://twitter.com/[tweet-url]  ➤ Display tweet",
       "https://github.com/[user]/[repo] ➤ Get Github repository information",
+      "!mdn [query]                     ➤ Search on Mozilla Developer Network",
       "!attack [nick]                   ➤ Kick [nick]'s ass",
       "!pv [nick]                       ➤ Get [nick]'s pvs",
       "!techniques                      ➤ Get all available moves",

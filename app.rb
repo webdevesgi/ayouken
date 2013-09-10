@@ -6,6 +6,7 @@ plugins_dir = File.dirname(__FILE__) + '/plugins/'
 require plugins_dir + 'JoinQuit'
 require plugins_dir + 'Games'
 require plugins_dir + 'Google'
+require plugins_dir + 'Mdn'
 require plugins_dir + 'Fact'
 require plugins_dir + 'Tweet'
 require plugins_dir + 'Github'
@@ -28,6 +29,7 @@ bot = Cinch::Bot.new do
       JoinQuit,
       Games,
       Google,
+      Mdn,
       Fact,
       Tweet,
       Github,
