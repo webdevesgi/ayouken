@@ -3,7 +3,7 @@ require 'open-uri'
 
 class Reddit
   def get_links(url)
-    res = Nokogiri::HTML(open(url)).css('a.title')
+    res = Nokogiri::HTML(open(url, "Cookie" => "over18=1")).css('a.title')
     rand = Random.rand(res.size)
     link = res[rand]
     "#{link.content} #{link[:href]}"
