@@ -8,7 +8,7 @@ Clone it. Install it. Do it
 
 ```shell
 # Check you're using ruby 2
-git clone git@github.com:rhannequin/ayouken.git
+git clone git@github.com:webdevesgi/ayouken.git
 cd ayouken
 bundle install
 ruby app.rb
