@@ -89,6 +89,7 @@ class Games
   def execute_roulette(m)
     bullet = 5
     roulette = Random.rand(6)
-    m.reply(bullet == roulette ? "BANG!" : "Click!")
+    res = bullet == roulette ? 'BANG!' : 'Click!'
+    m.reply m.user.nick + ' ➤ ' + res
   end
 end

@@ -6,9 +6,9 @@ class Doc
 
   def list
     [
-      "google [query]                   ➤ Get link to Google query",
       "https://twitter.com/[tweet-url]  ➤ Display tweet",
       "https://github.com/[user]/[repo] ➤ Get Github repository information",
+      "!google [query]                  ➤ Get link to Google query",
       "!mdn [query]                     ➤ Search on Mozilla Developer Network",
       "!attack [nick]                   ➤ Kick [nick]'s ass",
       "!pv [nick]                       ➤ Get [nick]'s pvs",
