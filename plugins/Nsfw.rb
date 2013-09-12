@@ -5,6 +5,7 @@ class Nsfw < Reddit
   include Cinch::Plugin
   match "sexygif",      method: :execute_sexygif
   match "porn",         method: :execute_porn
+  match "wild",         method: :execute_wild
   match(/pornhub (.+)/, method: :execute_pornhub)
 
   def execute_sexygif(m)
@@ -12,7 +13,11 @@ class Nsfw < Reddit
   end
 
   def execute_porn(m)
-    m.reply get_links('http://www.reddit.com/r/porn')
+    m.reply get_links('http://www.reddit.com/r/porn_gifs')
+  end
+
+  def execute_wild(m)
+    m.reply get_links('http://www.reddit.com/r/gone_wild')
   end
 
   def execute_pornhub(m, query)
