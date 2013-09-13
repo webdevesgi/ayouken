@@ -8,7 +8,7 @@ require plugins_dir + 'Games'
 require plugins_dir + 'Google'
 require plugins_dir + 'Mdn'
 require plugins_dir + 'Fact'
-require plugins_dir + 'Tweet'
+require plugins_dir + 'Twitter'
 require plugins_dir + 'Github'
 require plugins_dir + 'Reddit'
 require plugins_dir + 'Nsfw'
@@ -31,7 +31,7 @@ bot = Cinch::Bot.new do
       Google,
       Mdn,
       Fact,
-      Tweet,
+      Twitter,
       Github,
       RedditGif,
       Nsfw,

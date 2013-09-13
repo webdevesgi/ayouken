@@ -7,6 +7,7 @@ class Doc
   def list
     [
       "https://twitter.com/[tweet-url]  ➤ Display tweet",
+      "https://twitter.com/[username]   ➤ Display twitter account information",
       "https://github.com/[user]/[repo] ➤ Get Github repository information",
       "!google [query]                  ➤ Get link to Google query",
       "!mdn [query]                     ➤ Search on Mozilla Developer Network",
