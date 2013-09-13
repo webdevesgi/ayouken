@@ -8,7 +8,7 @@ class Google
   match(/google (.+)/)
 
   def execute(m, query)
-    url = "http://www.google.com/search?q=#{CGI.escape(query)}"
+    url = "https://www.google.fr/search?q=#{CGI.escape(query)}&ie=utf-8&oe=utf-8"
     m.reply "#{get_first_result(url)} ( #{url} )"
   end
 
