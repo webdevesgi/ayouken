@@ -8,34 +8,37 @@ require plugins_dir + 'Games'
 require plugins_dir + 'Google'
 require plugins_dir + 'Mdn'
 require plugins_dir + 'Fact'
-require plugins_dir + 'Twitter'
 require plugins_dir + 'Github'
 require plugins_dir + 'Reddit'
 require plugins_dir + 'Alert'
 require plugins_dir + 'Other'
 require plugins_dir + 'Doc'
-
-
+require plugins_dir + 'HashTag'
+#require plugins_dir + 'Twitter'
 
 bot = Cinch::Bot.new do
   configure do |c|
     c.encoding        = 'utf-8'
     c.server          = "irc.freenode.org"
-    c.nick            = "ayouken"
-    c.user            = "ayouken"
-    c.channels        = ['#webdevesgi']
+    #c.nick            = "ayouken"
+    #c.user            = "ayouken"
+    c.nick            = "NimzyCookie"
+    c.user            = "NimzyCookie"
+    #c.channels        = ['#webdevesgi']
+    c.channels        = ['#nims']
     c.plugins.plugins = [
       JoinQuit,
       Games,
       Google,
       Mdn,
       Fact,
-      Twitter,
+      #Twitter,
       Github,
       RedditGif,
       Alert,
       Other,
-      Doc
+      Doc,
+      HashTag
     ]
   end
 end

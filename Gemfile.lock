@@ -5,6 +5,7 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     mini_portile (0.5.1)
+    multi_json (1.8.1)
     multipart-post (1.2.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
@@ -16,6 +17,11 @@ GEM
       uri_template (~> 0.5.0)
     shotgun (0.9)
       rack (>= 1.0)
+    simple_oauth (0.2.0)
+    twitter (4.8.1)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
     uri_template (0.5.3)
 
 PLATFORMS
@@ -26,3 +32,4 @@ DEPENDENCIES
   nokogiri
   octokit
   shotgun
+  twitter (~> 4.8)
