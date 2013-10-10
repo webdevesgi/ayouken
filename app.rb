@@ -13,8 +13,7 @@ require plugins_dir + 'Reddit'
 require plugins_dir + 'Alert'
 require plugins_dir + 'Other'
 require plugins_dir + 'Doc'
-require plugins_dir + 'HashTag'
-#require plugins_dir + 'Twitter'
+require plugins_dir + 'TwitterPlugins'
 
 bot = Cinch::Bot.new do
   configure do |c|
@@ -24,21 +23,21 @@ bot = Cinch::Bot.new do
     #c.user            = "ayouken"
     c.nick            = "NimzyCookie"
     c.user            = "NimzyCookie"
-    #c.channels        = ['#webdevesgi']
-    c.channels        = ['#nims']
+    c.channels        = ['#webdevesgi']
+    #c.channels        = ['#nims']
     c.plugins.plugins = [
       JoinQuit,
       Games,
       Google,
       Mdn,
       Fact,
-      #Twitter,
       Github,
       RedditGif,
       Alert,
       Other,
       Doc,
-      HashTag
+      TwitterScrap,
+      TwitterHashTag
     ]
   end
 end

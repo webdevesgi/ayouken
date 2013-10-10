@@ -1,7 +1,35 @@
+#Twitter's plugins
+require 'twitter'
 require 'nokogiri'
 require 'open-uri'
+require 'yaml'
 
-class Twitter
+def read_config
+  twitter_api = YAML.load_file( File.dirname(__FILE__) + '/../config.yaml' )
+  Twitter.configure do |config|
+    config.consumer_key       = twitter_api["twitter_api"]["twitter_consumer_key"]
+    config.consumer_secret    = twitter_api["twitter_api"]["twitter_consumer_secret"]
+    config.oauth_token        = twitter_api["twitter_api"]["twitter_oauth_token"]
+    config.oauth_token_secret = twitter_api["twitter_api"]["twitter_oauth_token_secret"]
+  end
+end
+read_config
+
+class TwitterHashTag
+  #TODO replace tiny url by long
+  include Cinch::Plugin
+
+  set :prefix, //
+  match /(?:(?<=\s)|^)#(\w*[A-Za-z_]+\w*)/, method: :get_first_tweet
+
+  def get_first_tweet(m, hashtag)
+    res = Twitter.search("##{hashtag} -rt")
+    m.reply res.results.map{ |t| ['@' + t.from_user, t.text].join(' ➤ ') }.first
+    m.reply CONSUMER_KEY
+  end
+end
+
+class TwitterScrap
   include Cinch::Plugin
 
   set :prefix, //
