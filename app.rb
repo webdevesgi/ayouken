@@ -19,12 +19,9 @@ bot = Cinch::Bot.new do
   configure do |c|
     c.encoding        = 'utf-8'
     c.server          = "irc.freenode.org"
-    #c.nick            = "ayouken"
-    #c.user            = "ayouken"
-    c.nick            = "NimzyCookie"
-    c.user            = "NimzyCookie"
+    c.nick            = "ayouken"
+    c.user            = "ayouken"
     c.channels        = ['#webdevesgi']
-    #c.channels        = ['#nims']
     c.plugins.plugins = [
       JoinQuit,
       Games,
