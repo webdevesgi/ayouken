@@ -18,7 +18,8 @@ class Doc
       "!fact                            ➤ Get random world fact",
       "!gif                             ➤ Get random gif from top reddit /r/gifs",
       "!forkme                          ➤ Get URL of repo",
-      "!commands                        ➤ List of bot's commands"
+      "!commands                        ➤ List of bot's commands",
+      "#hashtag                         ➤ Get last tweet which contains it"
     ]
   end
 

@@ -5,7 +5,7 @@ require 'open-uri'
 require 'yaml'
 
 def read_config
-  twitter_api = YAML.load_file( File.dirname(__FILE__) + '/../config.yaml' )
+  twitter_api = YAML.load_file( File.dirname(__FILE__) + '/../config.yml' )
   Twitter.configure do |config|
     config.consumer_key       = twitter_api["twitter_api"]["twitter_consumer_key"]
     config.consumer_secret    = twitter_api["twitter_api"]["twitter_consumer_secret"]
@@ -16,7 +16,7 @@ end
 read_config
 
 class TwitterHashTag
-  #TODO replace tiny url by long
+  #FIXME replace tiny url by long
   include Cinch::Plugin
 
   set :prefix, //
@@ -24,8 +24,19 @@ class TwitterHashTag
 
   def get_first_tweet(m, hashtag)
     res = Twitter.search("##{hashtag} -rt")
-    m.reply res.results.map{ |t| ['@' + t.from_user, t.text].join(' ➤ ') }.first
-    m.reply CONSUMER_KEY
+    text = res.results.map{ |t| ['@' + t.from_user, t.text].join(' ➤ ') }.first
+
+    tiny_url = ''
+    long_url = ''
+
+    if res.results.first.urls.nil?
+      res.results.first.urls.map do |u|
+        tiny_url = u.url
+        long_url = u.expanded_url
+      end
+    end
+
+    m.reply text.gsub(/#{tiny_url}/, long_url)
   end
 end
 
