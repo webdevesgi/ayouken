@@ -16,7 +16,6 @@ end
 read_config
 
 class TwitterHashTag
-  #FIXME replace tiny url by long
   include Cinch::Plugin
 
   set :prefix, //
@@ -29,11 +28,9 @@ class TwitterHashTag
     tiny_url = ''
     long_url = ''
 
-    if res.results.first.urls.nil?
-      res.results.first.urls.map do |u|
-        tiny_url = u.url
-        long_url = u.expanded_url
-      end
+    res.results.first.urls.map do |u|
+      tiny_url = u.url
+      long_url = u.expanded_url
     end
 
     m.reply text.gsub(/#{tiny_url}/, long_url)
