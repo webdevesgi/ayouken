@@ -13,7 +13,14 @@ class Nsfw < Reddit
   end
 
   def execute_porn(m)
-    m.reply get_links('http://www.reddit.com/r/porn_gifs')
+    m.reply get_links('http://www.reddit.com/r/' << [
+      'porn_gifs',
+      'porngif',
+      'NSFW_GIF',
+      'NSFW_GreatPorn',
+      'nsfw_gifs',
+      'NSFW_GIFProPorn'
+    ].sample)
   end
 
   def execute_wild(m)
