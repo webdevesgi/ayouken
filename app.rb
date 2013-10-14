@@ -8,15 +8,13 @@ require plugins_dir + 'Games'
 require plugins_dir + 'Google'
 require plugins_dir + 'Mdn'
 require plugins_dir + 'Fact'
-require plugins_dir + 'Twitter'
 require plugins_dir + 'Github'
 require plugins_dir + 'Reddit'
 require plugins_dir + 'Nsfw'
 require plugins_dir + 'Alert'
 require plugins_dir + 'Other'
 require plugins_dir + 'Doc'
-
-
+require plugins_dir + 'TwitterPlugins'
 
 bot = Cinch::Bot.new do
   configure do |c|
@@ -31,13 +29,14 @@ bot = Cinch::Bot.new do
       Google,
       Mdn,
       Fact,
-      Twitter,
       Github,
       RedditGif,
       Nsfw,
       Alert,
       Other,
-      Doc
+      Doc,
+      TwitterScrap,
+      TwitterHashTag
     ]
   end
 end

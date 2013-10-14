@@ -20,7 +20,8 @@ class Doc
       "!sexygif                         ➤ Get random gif from top reddit /r/randomsexygifs",
       "!porn                            ➤ Get random img from top reddit /r/porn",
       "!forkme                          ➤ Get URL of repo",
-      "!commands                        ➤ List of bot's commands"
+      "!commands                        ➤ List of bot's commands",
+      "#hashtag                         ➤ Get last tweet which contains it"
     ]
   end
 
